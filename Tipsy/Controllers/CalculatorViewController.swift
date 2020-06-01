@@ -29,14 +29,31 @@ class CalculatorViewController: UIViewController {
         twentyPcButton.isSelected = false
         
         sender.isSelected = true
+          billTextField.endEditing(true) // Hides keyboard when user clicks a tip
 
     }
     
     // Handles the change in the number of users split
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
+        
+        let numberOfPeople = String(format: "%.0f", sender.value)
+        splitNumberLabel.text = numberOfPeople
+        
     }
     
     @IBAction func calculatePressed(_ sender: Any) {
+        let tip: Double
+
+        
+        print(billTextField.text!) // Full value
+        if zeroPcButton.isSelected {
+//            let value = Double(billTextField.text!) / Double(splitNumberLabel.text!)
+            print(0.0)
+        } else if tenPcButton.isSelected {
+            print(0.1)
+        } else if twentyPcButton.isSelected {
+            print(0.2)
+        }
     }
 }
 
